@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video maintains aspect ratio and covers the screen */
+    z-index: -1;
+}
+.background-audio {
+    display: none; /* Hidden, but plays in the background */
+}
+
+.glass-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.glass-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.glass-box button {
+    background: #ff69b4;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.glass-box button:hover {
+    background: #ff1493;
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for readability */
+    backdrop-filter: blur(5px); /* Optional: Slight blur for glass-like effect */
+    border-radius: 15px;
+    padding: 20px; /* Equal padding on all sides */
+    text-align: center;
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+    max-width: 90%; /* Ensure it doesn’t overflow on mobile */
+    width: 400px; /* Default width for desktop */
+}
+
+/* Existing styles for form elements (unchanged, included for context) */
+.form-container h1 {
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.form-container input, .form-container textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ff69b4;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque for readability */
+}
+
+.form-container button {
+    background: #ff69b4;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.form-container button:hover {
+    background: #ff1493;
+}
+
+.back-button {
+    display: block;
+    margin-top: 20px;
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.image-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('bg\ img.jpg'); /* Replace with your image path/URL */
+    background-size: cover; /* Ensures the image covers the entire viewport while maintaining aspect ratio */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    z-index: -1; /* Keeps the image behind the form */
+}
+#audioToggle {
+    position: absolute;
+    top: 20px; /* Adjust as needed for spacing from the top */
+    right: 20px; /* Position in the top-right corner */
+    z-index: 10;
+    background: #ff69b4; /* Pink background */
+    border: none;
+    width: 50px; /* Larger width for visibility */
+    height: 50px; /* Larger height for visibility */
+    border-radius: 50%; /* Circular shape */
+    cursor: pointer;
+    display: flex; /* Center the icon */
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding to fit the circular shape */
+    font-size: 24px; /* Larger icon size for visibility */
+    color: white; /* Ensure icon is visible on pink background */
+}
+
+#audioToggle:hover {
+    background: #ff1493; /* Darker pink on hover */
+}
+
+/* Ensure the icon scales with the button size */
+#audioToggle i {
+    transition: transform 0.3s ease; /* Smooth transition for icon scaling */
+}
+
+
+/* Media query for mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    #audioToggle {
+        width: 40px; /* Slightly smaller on mobile */
+        height: 40px; /* Slightly smaller on mobile */
+        top: 10px; /* Adjust positioning on mobile */
+        right: 10px; /* Adjust positioning on mobile */
+        font-size: 20px; /* Smaller icon on mobile */
+    }
+
+    .background-video {
+        min-height: 100vh; /* Ensure video covers the viewport height on mobile */
+        min-width: 100%; /* Ensure video covers the viewport width on mobile */
+        object-fit: cover; /* Maintain aspect ratio and cover the screen */
+    }
+
+    .glass-box, .form-container {
+        width: 80%; /* Reduce width for mobile */
+        padding: 15px; /* Reduce padding for smaller screens */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center the box */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .glass-box p {
+        font-size: 16px; /* Adjust text size in glass box */
+    }
+
+    .glass-box button, .form-container button, #audioToggle {
+        padding: 8px 16px; /* Reduce button padding for mobile */
+        font-size: 14px; /* Smaller button text */
+    }
+
+    .image-background {
+        background-size: cover; /* Maintain cover on mobile */
+        background-position: center; /* Center the image on mobile */
+    }
+
+    .form-container {
+        width: 80%; /* Reduce width for mobile */
+        padding: 15px; /* Equal padding on all sides for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .form-container h1 {
+        font-size: 18px; /* Smaller heading for mobile */
+    }
+
+    .form-container input, .form-container textarea {
+        font-size: 14px; /* Smaller input/textarea font size */
+        padding: 8px; /* Reduce padding for inputs */
+    }
+
+    .form-container button {
+        padding: 8px 16px; /* Reduce button padding for mobile */
+        font-size: 14px; /* Smaller button text */
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}  

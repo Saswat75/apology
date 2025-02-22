@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <video autoplay loop muted class="background-video">
+        <source src="website.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <audio id="backgroundAudio" autoplay loop muted class="background-audio">
+        <source src="audio.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="glass-box">
+        <p>Hey Madam Jiil, I am truly sorry for my mistakes.🥲 Kuch boldijiye par aise khafa na rahiye. Please forgive me and let me make things right.🤧</p>
+        <button onclick="window.location.href='apology.html'">Meet me here😉</button>
+    </div>
+
+    <!-- Updated audio toggle button with no inline styles -->
+    <button id="audioToggle">
+        <i class="fas fa-play"></i> <!-- Play icon by default -->
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // JavaScript to handle audio playback with user interaction
+        const audio = document.getElementById('backgroundAudio');
+        const audioToggle = document.getElementById('audioToggle');
+
+        audioToggle.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    audioToggle.innerHTML = '<i class="fas fa-pause"></i>'; // Change to pause icon
+                    audio.muted = false; // Unmute after user interaction
+                }).catch(error => {
+                    console.error('Audio play failed:', error);
+                });
+            } else {
+                audio.pause();
+                audioToggle.innerHTML = '<i class="fas fa-play"></i>'; // Change back to play icon
+            }
+        });
+
+        // Attempt to unmute and play audio after user interaction (optional)
+        audio.muted = true; // Start muted to bypass autoplay restrictions
+    </script>
+</body>
+</html>

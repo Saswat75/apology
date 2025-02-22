@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tell Me What to Fix</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="image-background">
+        <div class="form-container">
+            <h1>Tell me what to fix, I'll fix</h1>
+            <form id="messageForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit" id="sendMessage">Send Message</button>
+            </form>
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
